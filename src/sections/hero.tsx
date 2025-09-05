@@ -26,7 +26,7 @@ export default function Hero() {
     return (
         <section className='bg-white p-7'>
             <motion.div
-                className="relative classicCard rounded-3xl p-5 justify-start items-center h-screen
+                className="relative classicCard rounded-3xl p-5 justify-start items-center md:h-screen h-full
   bg-[linear-gradient(to_bottom_right,white_60%,#FFA5F8_80%,#87A2FF)]
   overflow-y-hidden p-7
   before:content-[''] before:absolute before:inset-0
@@ -43,34 +43,34 @@ export default function Hero() {
                         <img src={codily.src} alt=''  className='w-10 h-3.5 object-cover'/>
                     </div>
 
-                    <motion.div className='text-center text-black text-[45px] font-bold mt-15' variants={item}
+                    <motion.div className='text-center text-black text-2xl md:text-[45px] font-bold md:mt-15 mt-7' variants={item}
                     >
                         Building Web & Mobile Experiences That Scale
                     </motion.div>
-                    <motion.div variants={item} className='flex flex-row w-full justify-center items-center text-center text-black text-[45px] font-bold mt-4'>
+                    <motion.div variants={item} className='flex flex-row w-full justify-center items-center text-center text-black text-2xl md:text-[45px] font-bold md:mt-4 mt-2'>
                         with
-                        <div className='classicCard rounded-xl px-3 py-1 ml-2 text-white text-[45px] font-bold bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF]'>
+                        <div className='classicCard rounded-xl px-3 py-1 ml-2 text-white text-2xl md:text-[45px] font-bold bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF]'>
                             Codili
                         </div>
                     </motion.div>
 
-                    <motion.div variants={item} className='flex flex-row text-center w-full justify-center items-center mt-10'>
-                        <p className='max-w-180 text-black text-md'>
+                    <motion.div variants={item} className='flex flex-row text-center w-full justify-center items-center md:mt-10 mt-7'>
+                        <p className='md:max-w-180 max-w-75 text-black/70 md:text-black font-light text-sm md:text-md'>
                             We design and develop modern applications with React, Next.js, and React Native, helping startups and businesses turn ideas into seamless digital products.
                         </p>
                     </motion.div>
 
-                    <motion.div variants={item} className='flex flex-row w-full justify-center items-center max-h-84 overflow-y-hidden pt-75'>
-                        <img src={iphone.src} alt=''  className='w-75 h-145'/>
+                    <motion.div variants={item} className='flex flex-row w-full justify-center items-center md:max-h-84 max-h-0 overflow-y-hidden md:pt-75 pt-60 -mb-7 md:mb-0'>
+                        <img src={iphone.src} alt=''  className='md:w-75 md:h-145 w-55 h-100'/>
                     </motion.div>
-                    <motion.div variants={item} className='absolute bottom-20 left-129'>
-                        <img src={logo.src} alt=''  className='w-25 h-25 object-contain'/>
+                    <motion.div variants={item} className='absolute md:bottom-20 md:left-129 bottom-10 left-25'>
+                        <img src={logo.src} alt=''  className='md:w-25 md:h-25 w-20 h-20 object-contain'/>
                     </motion.div>
-                    <motion.div variants={item} className='absolute bottom-7 left-55'>
-                        <img src={history.src} alt=''  className='w-70 h-70 object-contain'/>
+                    <motion.div variants={item} className='absolute md:bottom-7 md:left-55 bottom-11 left-40'>
+                        <img src={history.src} alt=''  className='md:min-w-0 md:w-70 md:h-70 min-w-35 h-22 md:object-contain object-cover'/>
                     </motion.div>
-                    <motion.div variants={item} className='absolute bottom-17 right-55'>
-                        <img src={projects.src} alt=''  className='w-75 h-75 object-contain'/>
+                    <motion.div variants={item} className='absolute md:bottom-17 md:right-55 bottom-25 right-35'>
+                        <img src={projects.src} alt=''  className='md:min-w-0 md:w-75 md:h-75 min-w-40 h-18 md:object-contain object-cover'/>
                     </motion.div>
                 </div>
             </motion.div>

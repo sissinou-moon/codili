@@ -27,17 +27,17 @@ export default function Call() {
     const [message, setMessage] = useState("");
 
     return (
-        <section className='bg-white px-18 py-7'>
+        <section className='bg-white md:px-18 px-7 py-7'>
             <motion.div variants={container} initial='hidden' whileInView='show' viewport={{once: true, amount: 0.2}} className='relative flex flex-col bg-white justify-between'>
-                <div className='flex flex-row justify-between'>
+                <div className='flex md:flex-row flex-col gap-15 md:gap-0 justify-between'>
                     <div>
                         <motion.div variants={item} className='inline-flex flex-row items-center classicCard rounded-full px-2 py-1 gap-1'>
                             <img src={logo.src} alt='logo' className='w-4 h-4'/>
-                            <p className='text-xs text-[#87A2FF]'>Best Projects</p>
+                            <p className='text-xs text-[#87A2FF]'>Let's talk</p>
                         </motion.div>
 
-                        <motion.p variants={item} className='text-3xl text-black font-medium max-w-100 mt-15'>Ready to transform your Idea to real-project ?</motion.p>
-                        <motion.p variants={item} className='description max-w-140 mt-5'>Have an idea in mind? Let’s bring it to life with powerful, modern solutions — from design to development, I’ll help you build a project that grows with your goals.</motion.p>
+                        <motion.p variants={item} className='md:text-3xl text-2xl text-black font-medium max-w-100 md:mt-15 mt-4'>Ready to transform your Idea to real-project ?</motion.p>
+                        <motion.p variants={item} className='text-black/70 md:text-black font-light md:font-light text-sm md:text-md max-w-140 mt-5'>Have an idea in mind? Let’s bring it to life with powerful, modern solutions — from design to development, I’ll help you build a project that grows with your goals.</motion.p>
                     </div>
                     <motion.div variants={item}>
                         <div className='flex flex-row gap-3 justify-start items-start'>
@@ -67,7 +67,7 @@ export default function Call() {
                     </motion.div>
                 </div>
 
-                <motion.div variants={item} className='bg-[#B6BFD2]/15 rounded-xl px-10 py-10 flex flex-row justify-start items-start mt-25 gap-40 opacity-90'>
+                <motion.div variants={item} className='hidden md-block bg-[#B6BFD2]/15 rounded-xl px-10 py-10 md:flex flex-row justify-start items-start mt-25 gap-40 opacity-90'>
                     <div className='flex flex-col justify-between items-start h-60'>
                         <div className='flex flex-col gap-10 justify-start items-start'>
                             <div className='flex flex-row gap-2'>

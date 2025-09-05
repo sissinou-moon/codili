@@ -32,22 +32,22 @@ const pricing = [
 
 export default function Pricing() {
     return (
-        <section className='bg-white px-18 py-7 pb-20'>
+        <section className='bg-white md:px-18 px-7 py-7 pb-20'>
             <motion.div variants={container} whileInView='show' initial='hidden' viewport={{once: true, amount: 0.2}} className='flex flex-col bg-white justify-center items-center text-center'>
                 <motion.div variants={items} className='inline-flex flex-row items-center classicCard rounded-full px-2 py-1 gap-1'>
                     <img src={logo.src} alt='logo' className='w-4 h-4'/>
                     <p className='text-xs text-[#87A2FF]'>Pricing</p>
                 </motion.div>
 
-                <motion.p variants={items} className='text-3xl text-black font-medium mt-5'>Choose the Right Plan for Your Project</motion.p>
-                <motion.p variants={items} className='description mt-3 max-w-110'>We offer flexible plans tailored to your business goals. Pick the package that fits your vision and let’s build it together.</motion.p>
+                <motion.p variants={items} className='md:text-3xl text-2xl max-w-70 md:max-w-300 text-black font-medium mt-5'>Choose the Right Plan for Your Project</motion.p>
+                <motion.p variants={items} className='text-black/70 md:text-black font-light md:font-light text-sm md:text-md mt-3 max-w-110'>We offer flexible plans tailored to your business goals. Pick the package that fits your vision and let’s build it together.</motion.p>
 
-                <div className='flex flex-row gap-5 justify-center items-center mt-10'>
+                <div className='flex md:flex-row flex-col gap-5 justify-center items-center mt-10'>
                     {pricing.map((item, i) => (
                         <motion.div variants={cardAnimation} className='flex flex-col max-w-80 border border-black/20 hover:border-[#87A2FF] rounded-2xl px-7 py-5 justify-start items-start transition-all duration-300 ease-in-out hover:scale-101' key={i}>
                             <p className='text-black text-md'>{item.name}</p>
                             <p className='text-2xl text-black font-semibold mt-3'>{item.price}$</p>
-                            <p className='description text-start mt-3'>{item.description}</p>
+                            <p className='text-black/70 md:text-black font-light text-sm md:text-md text-start mt-3'>{item.description}</p>
                             <div className={i === 1 ? `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-400 ease-in-out hover:scale-96` : `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm font-medium  cursor-pointer transition-all duration-400 ease-in-out hover:scale-96`}>Get Started</div>
                             <div className='flex flex-col gap-4 mt-10 mb-2'>
                                 {item.services.map((service, index) => (
