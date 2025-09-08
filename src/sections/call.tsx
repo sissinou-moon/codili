@@ -4,6 +4,7 @@ import logo from "@/assets/logo.png";
 import codili from "@/assets/codili.png";
 import {useState} from "react";
 import { motion } from "framer-motion";
+import {toast, ToastContainer} from "react-toastify";
 
 const container = {
     hidden: {opacity: 0},
@@ -24,7 +25,34 @@ export default function Call() {
 
     const [first_name, setFirst_name] = useState("");
     const [last_name, setLast_name] = useState("");
+    const [email, setEmail] = useState("");
+    const [error, setError] = useState("");
     const [message, setMessage] = useState("");
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setError('');
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: `${first_name} ${last_name}`, email, message }),
+            });
+            const data = await res.json();
+            if (data.success) {
+                setLast_name('');
+                setFirst_name('');
+                setEmail('');
+                setMessage('');
+                const notify = toast.success('Message sent!');
+            } else {
+                setError(data.error || 'Something went wrong.');
+            }
+        } catch (err: unknown) {
+            setError('error');
+            throw err;
+        }
+    }
 
     return (
         <section className='bg-white md:px-18 px-7 py-7'>
@@ -47,23 +75,29 @@ export default function Call() {
                                     className="border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium"
                                     type="text"
                                     placeholder="Type here..."
+                                    value={first_name}
+                                    onChange={e => setFirst_name(e.target.value)}
                                 />
                             </div>
                             <div className='flex flex-col gap-1'>
                                 <p className='text-sm font-medium text-black '>Last Name</p>
-                                <input className='border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Michel'></input>
+                                <input value={last_name} onChange={(value) => {setLast_name(value.target.value)}} className='border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Michel'></input>
                             </div>
                         </div>
                         <p className='text-sm font-medium text-black mt-5'>Email</p>
-                        <input className='w-full border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Johan@gmail.com'></input>
+                        <input value={email} onChange={(value) => {setEmail(value.target.value)}} className='w-full border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Johan@gmail.com'></input>
                         <p className='text-sm font-medium text-black mt-5'>Message</p>
                         <textarea
                             className='border border-black/20 rounded-lg w-full mt-1 p-2 resize-none placeholder-gray-400  text-sm text-black/70 font-medium focus:border-[#87A2FF] focus:outline-none transition-colors duration-200'
                             rows={5}
                             maxLength={1000}  // optional: limit characters
                             placeholder='Hii!'
+                            value={message}
+                            onChange={(value) => {
+                                setMessage(value.target.value);
+                            }}
                         ></textarea>
-                        <div className='flex flex-row justify-center items-center classicCard w-full py-3 rounded-lg mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-200 ease-in-out hover:opacity-90'>Let's Talk</div>
+                        <div onClick={handleSubmit} className='flex flex-row justify-center items-center classicCard w-full py-3 rounded-lg mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-200 ease-in-out hover:opacity-90'>let's talk</div>
                     </motion.div>
                 </div>
 
@@ -92,6 +126,7 @@ export default function Call() {
                     </div>
                 </motion.div>
             </motion.div>
+            <ToastContainer/>
         </section>
     );
 }

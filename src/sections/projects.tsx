@@ -5,6 +5,7 @@ import jobify from "@/assets/jobify.jpg";
 import carewise from "@/assets/carewise.png";
 import versili from "@/assets/versili.png";
 import { motion } from "framer-motion";
+import {useRouter} from "next/navigation";
 
 const container = {
     hidden: {opacity: 0},
@@ -27,12 +28,15 @@ const items = {
 }
 
 const projects = [
-    {name: 'Freelancers platform', description: 'A modern platform that connects job seekers with opportunities in a fast and intuitive way. The website serves as the entry point for both candidates and employers, offering a seamless experience across.', picture: jobify},
-    {name: 'CareWise', description: 'Carewise is a smart platform designed to make healthcare management simple and accessible. It connects patients, doctors, and caregivers in one seamless experience.', picture: carewise},
-    {name: 'Versili – Crypto Wallet App', description: 'Versili is a secure and user-friendly mobile wallet designed for managing digital assets with ease. It combines simplicity with powerful features, making crypto accessible to everyone.', picture: versili},
+    {name: 'Freelancers platform', link: 'https://github.com/sissinou-moon/Jobify.git', description: 'A modern platform that connects job seekers with opportunities in a fast and intuitive way. The website serves as the entry point for both candidates and employers, offering a seamless experience across.', picture: jobify},
+    {name: 'CareWise', link: 'https://github.com/sissinou-moon/CareWise.git', description: 'Carewise is a smart platform designed to make healthcare management simple and accessible. It connects patients, doctors, and caregivers in one seamless experience.', picture: carewise},
+    {name: 'Versili – Crypto Wallet App', link: 'https://github.com/sissinou-moon/cryptowallet.git', description: 'Versili is a secure and user-friendly mobile wallet designed for managing digital assets with ease. It combines simplicity with powerful features, making crypto accessible to everyone.', picture: versili},
 ];
 
 export default function Projects() {
+
+    const router = useRouter();
+
     return (
         <section className='bg-white md:px-18 px-7 py-7 pb-20'>
             <motion.div variants={container} initial='hidden' whileInView='show' viewport={{once: true, amount: 0.2}} className='flex flex-col bg-white justify-center items-center text-center'>
@@ -52,7 +56,9 @@ export default function Projects() {
                                 <p className='text-lg text-black font-medium mt-3'>{item.name}</p>
                                 <p className='text-black/70 md:text-black font-light md:font-light text-sm md:text-md text-start mt-3'>{item.description}</p>
                             </div>
-                            <div className={`flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm transition-all duration-400 ease-in-out hover:bg-[#87A2FF] hover:text-white hover:scale-94 cursor-pointer`}>Read More</div>
+                            <div onClick={() => {
+                                router.push(item.link);
+                            }} className={`flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm transition-all duration-400 ease-in-out hover:bg-[#87A2FF] hover:text-white hover:scale-94 cursor-pointer`}>Read More</div>
                         </div>
                     ))}
                 </motion.div>
