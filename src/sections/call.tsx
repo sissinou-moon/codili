@@ -119,13 +119,14 @@ export default function Call() {
                         <p className='text-black/80 text-md font-medium mb-8'>Links</p>
                         <p className='description'><a href='https://github.com/sissinou-moon'>Github</a></p>
                         <p className='description'><a href='https://github.com/sissinou-moon'>Behance</a></p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>Dribbble</a></p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>LinkedIn</a></p>
                         <p className='description'><a href='https://github.com/sissinou-moon'>Fiverr</a></p>
                     </div>
                     <div className='flex flex-col justify-between items-start gap-3'>
                         <p className='text-black/80 text-md font-medium mb-8'>Follow us</p>
-                        <p className='description'>Instagram</p>
-                        <p className='description'>X</p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>Instagram</a></p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>Thread</a></p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>X</a></p>
                     </div>
                 </motion.div>
             </motion.div>
