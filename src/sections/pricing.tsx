@@ -46,7 +46,7 @@ export default function Pricing() {
                     {pricing.map((item, i) => (
                         <motion.div variants={cardAnimation} className='flex flex-col max-w-80 border border-black/20 hover:border-[#87A2FF] rounded-2xl px-7 py-5 justify-start items-start transition-all duration-300 ease-in-out hover:scale-101' key={i}>
                             <p className='text-black text-md'>{item.name}</p>
-                            <p className='text-2xl text-black font-semibold mt-3'>{item.price}$</p>
+                            <p className='text-2xl text-black font-semibold mt-3'>${item.price}</p>
                             <p className='text-black/70 md:text-black font-light text-sm md:text-md text-start mt-3'>{item.description}</p>
                             <div className={i === 1 ? `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-400 ease-in-out hover:scale-96` : `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm font-medium  cursor-pointer transition-all duration-400 ease-in-out hover:scale-96`}>Get Started</div>
                             <div className='flex flex-col gap-4 mt-10 mb-2'>
