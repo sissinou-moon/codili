@@ -3,6 +3,8 @@
 import logo from '@/assets/logo.png'
 import check from '@/assets/check.png'
 import { motion } from 'framer-motion'
+import {createCheckoutUrl} from "@/lib/lemon-squeezy/server";
+import Link from "next/link";
 
 const container = {
     hidden: {opacity: 0},
@@ -30,7 +32,13 @@ const pricing = [
     {name: 'Enterprise', price: 550, description: 'For enterprises or long-term projects requiring complex solutions.', services: ['Full-stack web or mobile app', 'Dashboard / Admin panel', 'Cloud deployment & CI/CD setup', 'Advanced security & scalability', 'Ongoing support & maintenance']},
 ]
 
-export default function Pricing() {
+export default async function Pricing() {
+
+    const checkoutUrl = await createCheckoutUrl({
+        variantId: "988243",
+        embed: false,
+    });
+
     return (
         <section className='bg-white md:px-18 px-7 py-7 pb-20'>
             <motion.div variants={container} whileInView='show' initial='hidden' viewport={{once: true, amount: 0.2}} className='flex flex-col bg-white justify-center items-center text-center'>
@@ -48,7 +56,7 @@ export default function Pricing() {
                             <p className='text-black text-md'>{item.name}</p>
                             <p className='text-2xl text-black font-semibold mt-3'>${item.price}</p>
                             <p className='text-black/70 md:text-black font-light text-sm md:text-md text-start mt-3'>{item.description}</p>
-                            <div className={i === 1 ? `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-400 ease-in-out hover:scale-96` : `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm font-medium  cursor-pointer transition-all duration-400 ease-in-out hover:scale-96`}>Get Started</div>
+                            <div className={i === 1 ? `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-400 ease-in-out hover:scale-96` : `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm font-medium  cursor-pointer transition-all duration-400 ease-in-out hover:scale-96`}><Link href={checkoutUrl!}>Get Started Now!</Link></div>
                             <div className='flex flex-col gap-4 mt-10 mb-2'>
                                 {item.services.map((service, index) => (
                                     <div className='flex flex-row gap-2 items-center' key={index}>
