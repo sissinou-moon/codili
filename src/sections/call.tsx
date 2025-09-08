@@ -5,6 +5,7 @@ import codili from "@/assets/codili.png";
 import {useState} from "react";
 import { motion } from "framer-motion";
 import {toast, ToastContainer} from "react-toastify";
+import {useRouter} from "next/navigation";
 
 const container = {
     hidden: {opacity: 0},
@@ -28,6 +29,8 @@ export default function Call() {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
     const [message, setMessage] = useState("");
+
+    const router = useRouter();
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -114,10 +117,10 @@ export default function Call() {
                     </div>
                     <div className='flex flex-col justify-between items-start gap-3'>
                         <p className='text-black/80 text-md font-medium mb-8'>Links</p>
-                        <p className='description'>Github</p>
-                        <p className='description'>Behance</p>
-                        <p className='description'>Dribbble</p>
-                        <p className='description'>Fiverr</p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>Github</a></p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>Behance</a></p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>Dribbble</a></p>
+                        <p className='description'><a href='https://github.com/sissinou-moon'>Fiverr</a></p>
                     </div>
                     <div className='flex flex-col justify-between items-start gap-3'>
                         <p className='text-black/80 text-md font-medium mb-8'>Follow us</p>
