@@ -33,20 +33,30 @@ const pricing = [
     {name: 'Enterprise', price: 550, description: 'For enterprises or long-term projects requiring complex solutions.', services: ['Full-stack web or mobile app', 'Dashboard / Admin panel', 'Cloud deployment & CI/CD setup', 'Advanced security & scalability', 'Ongoing support & maintenance']},
 ]
 
-export default async function Pricing() {
+export default function Pricing() {
 
     const [loading, setLoading] = useState(false);
 
     const handleCheckout = async () => {
-        setLoading(true);
-        const res = await fetch("/api/checkout", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({variantId: "988243", embed: false }),
-        });
-        const data = await res.json();
-        if (data.url) window.location.href = data.url;
-        setLoading(false);
+        try {
+            setLoading(true);
+            const res = await fetch("/api/checkout", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ variantId: "988243", embed: false }),
+            });
+
+            if (!res.ok) throw new Error("Checkout request failed");
+            const data = await res.json();
+
+            if (!data.url) throw new Error("No checkout URL returned");
+            window.location.href = data.url;
+        } catch (err) {
+            console.error("Checkout failed:", err);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
