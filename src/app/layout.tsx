@@ -26,9 +26,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body
-            className={`${sora.variable} ${workSans.variable} antialiased`}
-        >
+        <head>
+            {/* LemonSqueezy loader/checkout script */}
+            <script defer src="https://assets.lemonsqueezy.com/lemon.js"></script>
+        </head>
+        <body className={`${sora.variable} ${workSans.variable} antialiased`}>
         {children}
         </body>
         </html>

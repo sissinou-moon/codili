@@ -3,8 +3,6 @@
 import logo from '@/assets/logo.png'
 import check from '@/assets/check.png'
 import { motion } from 'framer-motion'
-import {createCheckoutUrl} from "@/lib/lemon-squeezy/server";
-import Link from "next/link";
 import {useState} from "react";
 
 const container = {
@@ -36,6 +34,7 @@ const pricing = [
 export default function Pricing() {
 
     const [loading, setLoading] = useState(false);
+    const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null);
 
     const handleCheckout = async () => {
         try {
@@ -46,11 +45,15 @@ export default function Pricing() {
                 body: JSON.stringify({ variantId: "988243", embed: true }),
             });
 
-            if (!res.ok) alert("Checkout request failed");
             const data = await res.json();
 
-            if (!data.url) alert("No checkout URL returned");
-            window.location.href = data.url;
+            if (!data.url) {
+                alert("No checkout URL returned");
+                return;
+            }
+
+            // ✅ no second click required
+            window.LemonSqueezy.Url.Open(data.url);
         } catch (err) {
             console.error("Checkout failed:", err);
             alert("Something went wrong. Please try again.");
@@ -58,6 +61,8 @@ export default function Pricing() {
             setLoading(false);
         }
     };
+
+
 
     return (
         <section className='bg-white md:px-18 px-7 py-7 pb-20'>
@@ -76,7 +81,9 @@ export default function Pricing() {
                             <p className='text-black text-md'>{item.name}</p>
                             <p className='text-2xl text-black font-semibold mt-3'>${item.price}</p>
                             <p className='text-black/70 md:text-black font-light text-sm md:text-md text-start mt-3'>{item.description}</p>
-                            <div onClick={handleCheckout} className={i === 1 ? `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-400 ease-in-out hover:scale-96 ${loading ? `opacity-40` : `opacity-100`}` : `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm font-medium  cursor-pointer transition-all duration-400 ease-in-out hover:scale-96 ${loading ? `opacity-40` : `opacity-100`}`}>{loading ? "Loading..." : "Get Started Now!"}</div>
+                            <div onClick={handleCheckout} className={i === 1 ? `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-white bg-gradient-to-b from-[#C4D7FF] to-[#87A2FF] text-sm font-medium cursor-pointer transition-all duration-400 ease-in-out hover:scale-96 ${loading ? `opacity-40` : `opacity-100`}` : `flex flex-row justify-center items-center classicCard w-full py-3 rounded-full mt-6 text-black text-sm font-medium  cursor-pointer transition-all duration-400 ease-in-out hover:scale-96 ${loading ? `opacity-40` : `opacity-100`}`}>
+                                {loading ? "Loading..." : "Get Started Now!"}
+                            </div>
                             <div className='flex flex-col gap-4 mt-10 mb-2'>
                                 {item.services.map((service, index) => (
                                     <div className='flex flex-row gap-2 items-center' key={index}>
