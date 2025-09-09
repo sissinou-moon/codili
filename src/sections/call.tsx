@@ -118,15 +118,15 @@ export default function Call() {
                     <div className='flex flex-col justify-between items-start gap-3'>
                         <p className='text-black/80 text-md font-medium mb-8'>Links</p>
                         <p className='description'><a href='https://github.com/sissinou-moon'>Github</a></p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>Behance</a></p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>LinkedIn</a></p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>Fiverr</a></p>
+                        <p className='description'><a href='https://www.behance.net/yassinesissinou'>Behance</a></p>
+                        <p className='description'><a href='https://www.linkedin.com/in/abderrahmane-dev?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'>LinkedIn</a></p>
+                        <p className='description'><a href='https://www.fiverr.com/sellers/abderrahmane015'>Fiverr</a></p>
                     </div>
                     <div className='flex flex-col justify-between items-start gap-3'>
                         <p className='text-black/80 text-md font-medium mb-8'>Follow us</p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>Instagram</a></p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>Thread</a></p>
-                        <p className='description'><a href='https://github.com/sissinou-moon'>X</a></p>
+                        <p className='description'><a href='https://www.instagram.com/codili.freelance?igsh=aDB5ejFwNmxiNW15'>Instagram</a></p>
+                        <p className='description'><a href='https://www.threads.com/@codili.freelance'>Thread</a></p>
+                        <p className='description'><a href='https://x.com/codili_?t=SjyQEZ-mZ7TxeveLgE6y5w&s=09'>X</a></p>
                     </div>
                 </motion.div>
             </motion.div>
