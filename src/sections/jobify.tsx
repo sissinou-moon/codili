@@ -59,8 +59,8 @@ const jobifyDescribe = [
 
 export default function Jobify() {
     return (
-        <section className='bg-white md:px-18 px-7 py-7 justify-between md:h-screen overflow-y-hidden'>
-            <motion.div variants={container} initial='hidden' whileInView='show' viewport={{once: true, amount: 0.2}} className='relative flex md:flex-row flex-col bg-white justify-between md:h-screen h-full md:overflow-y-hidden'>
+        <section className='bg-white lg:px-18 md:px-10 px-7 py-7 md:h-screen overflow-y-hidden'>
+            <motion.div variants={container} initial='hidden' whileInView='show' viewport={{once: true, amount: 0.2}} className='relative flex md:flex-row flex-col bg-white justify-between h-full md:max-h-185 md:overflow-y-hidden'>
                 <div>
                     <motion.div variants={items} className='inline-flex flex-row items-center classicCard rounded-full px-2 py-1 gap-1'>
                         <img src={logo.src} alt='logo' className='w-4 h-4'/>
@@ -91,12 +91,12 @@ export default function Jobify() {
                         ))}
                     </div>
                 </div>
-                <motion.div variants={{hidden: {opacity: 0, y:20}, show: {opacity: 1, y: 0, transition: {duration: 0.5} } }} className='flex flex-row justify-center items-center w-full md:max-w-95 mt-10 md:mt-0'>
+                <motion.div variants={{hidden: {opacity: 0, y:20}, show: {opacity: 1, y: 0, transition: {duration: 0.5} } }} className='flex flex-row justify-start items-start md:mt-10 w-full md:max-w-95 mt-10 md:mt-0 lg:mt-10'>
                     <img src={jobify_app.src} alt=''  className='md:w-95 md:h-160 w-70 h-130 object-contain'/>
                 </motion.div>
 
                 {/* Bottom shadow gradient */}
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white to-transparent z-0"></div>
+                <div className="absolute bottom-0 lg:-bottom-5 left-0 w-full h-32 bg-gradient-to-t from-white via-white to-transparent"></div>
             </motion.div>
         </section>
     );

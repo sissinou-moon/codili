@@ -58,24 +58,24 @@ export default function Call() {
     }
 
     return (
-        <section className='bg-white md:px-18 px-7 py-7'>
+        <section className='bg-white md:px-10 lg:px-18 px-7 py-7'>
             <motion.div variants={container} initial='hidden' whileInView='show' viewport={{once: true, amount: 0.2}} className='relative flex flex-col bg-white justify-between'>
-                <div className='flex md:flex-row flex-col gap-15 md:gap-0 justify-between'>
+                <div className='flex md:flex-row flex-col gap-15 md:gap-10 lg:gap-0 justify-between'>
                     <div>
                         <motion.div variants={item} className='inline-flex flex-row items-center classicCard rounded-full px-2 py-1 gap-1'>
                             <img src={logo.src} alt='logo' className='w-4 h-4'/>
                             <p className='text-xs text-[#87A2FF]'>Let's talk</p>
                         </motion.div>
 
-                        <motion.p variants={item} className='md:text-3xl text-2xl text-black font-medium max-w-100 md:mt-15 mt-4'>Ready to transform your Idea to real-project ?</motion.p>
-                        <motion.p variants={item} className='text-black/70 md:text-black font-light md:font-light text-sm md:text-md max-w-140 mt-5'>Have an idea in mind? Let’s bring it to life with powerful, modern solutions — from design to development, I’ll help you build a project that grows with your goals.</motion.p>
+                        <motion.p variants={item} className='lg:text-3xl md:text-2xl text-2xl text-black font-medium max-w-100 md:mt-15 mt-4'>Ready to transform your Idea to real-project ?</motion.p>
+                        <motion.p variants={item} className='text-black/70 md:text-black font-light md:font-light text-sm md:text-[12px] lg:text-[14px] max-w-140 mt-5'>Have an idea in mind? Let’s bring it to life with powerful, modern solutions — from design to development, I’ll help you build a project that grows with your goals.</motion.p>
                     </div>
                     <motion.div variants={item}>
-                        <div className='flex flex-row gap-3 justify-start items-start'>
+                        <div className='flex flex-row md:max-w-80 lg:max-w-200 gap-3 justify-start items-start'>
                             <div className='flex flex-col gap-1'>
                                 <p className='text-sm font-medium text-black '>First Name</p>
                                 <input
-                                    className="border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium"
+                                    className="md:max-w-38 lg:max-w-100 border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium"
                                     type="text"
                                     placeholder="Type here..."
                                     value={first_name}
@@ -84,14 +84,14 @@ export default function Call() {
                             </div>
                             <div className='flex flex-col gap-1'>
                                 <p className='text-sm font-medium text-black '>Last Name</p>
-                                <input value={last_name} onChange={(value) => {setLast_name(value.target.value)}} className='border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Michel'></input>
+                                <input value={last_name} onChange={(value) => {setLast_name(value.target.value)}} className='md:max-w-39 lg:max-w-100 border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Michel'></input>
                             </div>
                         </div>
                         <p className='text-sm font-medium text-black mt-5'>Email</p>
-                        <input value={email} onChange={(value) => {setEmail(value.target.value)}} className='w-full border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Johan@gmail.com'></input>
+                        <input value={email} onChange={(value) => {setEmail(value.target.value)}} className='w-full md:w-80 lg:w-full border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Johan@gmail.com'></input>
                         <p className='text-sm font-medium text-black mt-5'>Message</p>
                         <textarea
-                            className='border border-black/20 rounded-lg w-full mt-1 p-2 resize-none placeholder-gray-400  text-sm text-black/70 font-medium focus:border-[#87A2FF] focus:outline-none transition-colors duration-200'
+                            className='border border-black/20 rounded-lg  md:w-80 lg:w-full mt-1 p-2 resize-none placeholder-gray-400  text-sm text-black/70 font-medium focus:border-[#87A2FF] focus:outline-none transition-colors duration-200'
                             rows={5}
                             maxLength={1000}  // optional: limit characters
                             placeholder='Hii!'
@@ -111,7 +111,7 @@ export default function Call() {
                                 <img src={logo.src} alt='' className='w-13 h-13 rotate-90'/>
                                 <img src={codili.src} alt='' className='w-25 h-13 object-contain'/>
                             </div>
-                            <p className='description max-w-100'>We design and develop powerful web and mobile applications with React, Next.js, and React Native. My products are fast, scalable, and built to drive real growth for your business.</p>
+                            <p className='text-black/70 md:text-black font-light md:font-light text-sm md:text-[12px] lg:text-[14px] max-w-100'>We design and develop powerful web and mobile applications with React, Next.js, and React Native. My products are fast, scalable, and built to drive real growth for your business.</p>
                         </div>
                         <p className='text-sm font-semibold text-black/50'>Powered By Codili @2025</p>
                     </div>

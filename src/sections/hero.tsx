@@ -26,7 +26,7 @@ export default function Hero() {
     return (
         <section className='bg-white p-7'>
             <motion.div
-                className="relative classicCard rounded-3xl p-5 justify-start items-center md:h-screen h-full
+                className="relative classicCard rounded-3xl p-5 justify-start items-center md:h-full
   bg-[linear-gradient(to_bottom_right,white_60%,#FFA5F8_80%,#87A2FF)]
   overflow-y-hidden p-7
   before:content-[''] before:absolute before:inset-0
@@ -60,16 +60,13 @@ export default function Hero() {
                         </p>
                     </motion.div>
 
-                    <motion.div variants={item} className='flex flex-row w-full justify-center items-center md:max-h-84 max-h-0 overflow-y-hidden md:pt-75 pt-60 -mb-7 md:mb-0'>
+                    <motion.div variants={item} className='flex flex-row w-full justify-center items-center md:max-h-84 max-h-0 overflow-y-hidden md:pt-75 pt-60 -mb-7'>
                         <img src={iphone.src} alt=''  className='md:w-75 md:h-145 w-55 h-100'/>
                     </motion.div>
-                    <motion.div variants={item} className='absolute md:bottom-20 md:left-129 bottom-10 left-25'>
-                        <img src={logo.src} alt=''  className='md:w-25 md:h-25 w-20 h-20 object-contain'/>
-                    </motion.div>
-                    <motion.div variants={item} className='absolute md:bottom-7 md:left-55 bottom-11 left-40'>
+                    <motion.div variants={item} className='absolute lg:bottom-7 lg:left-55 md:bottom-7 md:left-5 bottom-11 left-40'>
                         <img src={history.src} alt=''  className='md:min-w-0 md:w-70 md:h-70 min-w-35 h-22 md:object-contain object-cover'/>
                     </motion.div>
-                    <motion.div variants={item} className='absolute md:bottom-17 md:right-55 bottom-25 right-35'>
+                    <motion.div variants={item} className='absolute md:bottom-17 lg:right-55 md:right-3 bottom-25 right-35'>
                         <img src={projects.src} alt=''  className='md:min-w-0 md:w-75 md:h-75 min-w-40 h-18 md:object-contain object-cover'/>
                     </motion.div>
                 </div>

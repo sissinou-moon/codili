@@ -38,7 +38,7 @@ export default function Projects() {
     const router = useRouter();
 
     return (
-        <section className='bg-white md:px-18 px-7 py-7 pb-20'>
+        <section className='bg-white md:px-10 lg:px-18 px-7 py-7 pb-20'>
             <motion.div variants={container} initial='hidden' whileInView='show' viewport={{once: true, amount: 0.2}} className='flex flex-col bg-white justify-center items-center text-center'>
                 <motion.div variants={items} className='inline-flex flex-row items-center classicCard rounded-full px-2 py-1 gap-1'>
                     <img src={logo.src} alt='logo' className='w-4 h-4'/>
@@ -48,13 +48,13 @@ export default function Projects() {
                 <motion.p variants={items} className='md:text-3xl text-2xl text-black font-medium mt-5'>Turning Ideas Into Digital Products</motion.p>
                 <motion.p variants={items} className='text-black/70 md:text-black font-light md:font-light text-sm md:text-md mt-3 max-w-110'>From landing pages to full-stack mobile apps, here are some of the projects I’ve delivered using React, Next.js, and React Native.</motion.p>
 
-                <motion.div variants={items} className='flex md:flex-row flex-col gap-5 justify-center items-center mt-10'>
+                <motion.div variants={items} className='flex md:flex-row flex-col gap-5 md:gap-2 lg:gap-5 justify-center items-center mt-10'>
                     {projects.map((item, i) => (
-                        <div className='flex flex-col max-w-80 border border-black/20 rounded-2xl px-7 py-5 justify-between items-start min-h-140' key={i}>
+                        <div className='flex flex-col max-w-80 border border-black/20 rounded-2xl px-7 md:px-3 lg:px-7 py-5 justify-between items-start min-h-140' key={i}>
                             <div className='flex flex-col justify-start items-start'>
                                 <img src={item.picture.src} alt='' className='rounded-xl h-70 w-70 object-cover'/>
-                                <p className='text-lg text-black font-medium mt-3'>{item.name}</p>
-                                <p className='text-black/70 md:text-black font-light md:font-light text-sm md:text-md text-start mt-3'>{item.description}</p>
+                                <p className='text-lg md:text-[15px] lg:text-lg text-black font-medium mt-3 text-start'>{item.name}</p>
+                                <p className='text-black/70 md:text-black font-light md:font-light text-sm md:text-xs lg:text-[14px] text-start mt-3 md:mt-2 lg:mt-3'>{item.description}</p>
                             </div>
                             <div onClick={() => {
                                 router.push(item.link);
