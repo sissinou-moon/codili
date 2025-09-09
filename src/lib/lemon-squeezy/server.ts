@@ -60,7 +60,7 @@ export async function createCheckoutUrl(
     if (userId) checkoutData.custom = {user_id: userId};
 
     const checkout = await createCheckout(
-        process.env.LEMONSQUEEZY_SERVER_ID!,
+        process.env.LEMONSQUEEZY_STORE_ID!,
         variantId,
         {
             checkoutOptions: {
@@ -71,18 +71,20 @@ export async function createCheckoutUrl(
             checkoutData,
             productOptions: {
                 enabledVariants: [parseInt(variantId)],
-                redirectUrl: `
-                    ${process.env.NEXT_PUBLIC_APP_URL ||
-                    "http://localhost:3000"}/
-                `,
+                redirectUrl: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
                 receiptButtonText: "Go to dashboard",
-                receiptThankYouNote: "Thank you for signing up to Lemon Stand!"
+                receiptThankYouNote: "Thank you for signing up!"
             }
         }
     );
+
+    console.log("📝 LemonSqueezy checkout response:", JSON.stringify(checkout, null, 2));
 
     if (!checkout.data?.data?.attributes?.url) {
         console.error("Faild to create checkout URL");
         return null;
     }
+
+    // ✅ Return the URL
+    return checkout?.data?.data?.attributes?.url || null;
 }

@@ -43,13 +43,13 @@ export default function Pricing() {
             const res = await fetch("/api/checkout", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ variantId: "988243", embed: false }),
+                body: JSON.stringify({ variantId: "988243", embed: true }),
             });
 
-            if (!res.ok) throw new Error("Checkout request failed");
+            if (!res.ok) alert("Checkout request failed");
             const data = await res.json();
 
-            if (!data.url) throw new Error("No checkout URL returned");
+            if (!data.url) alert("No checkout URL returned");
             window.location.href = data.url;
         } catch (err) {
             console.error("Checkout failed:", err);
