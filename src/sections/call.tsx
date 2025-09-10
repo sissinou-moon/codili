@@ -75,7 +75,7 @@ export default function Call() {
                             <div className='flex flex-col gap-1'>
                                 <p className='text-sm font-medium text-black '>First Name</p>
                                 <input
-                                    className="md:max-w-38 lg:max-w-100 border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium"
+                                    className="max-w-41 md:max-w-38 lg:max-w-100 border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium"
                                     type="text"
                                     placeholder="Type here..."
                                     value={first_name}
@@ -84,7 +84,7 @@ export default function Call() {
                             </div>
                             <div className='flex flex-col gap-1'>
                                 <p className='text-sm font-medium text-black '>Last Name</p>
-                                <input value={last_name} onChange={(value) => {setLast_name(value.target.value)}} className='md:max-w-39 lg:max-w-100 border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Michel'></input>
+                                <input value={last_name} onChange={(value) => {setLast_name(value.target.value)}} className='max-w-40 md:max-w-39 lg:max-w-100 border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Michel'></input>
                             </div>
                         </div>
                         <p className='text-sm font-medium text-black mt-5'>Email</p>
