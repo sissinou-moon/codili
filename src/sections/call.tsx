@@ -91,7 +91,7 @@ export default function Call() {
                         <input value={email} onChange={(value) => {setEmail(value.target.value)}} className='w-full md:w-80 lg:w-full border-1 border-black/20 rounded-lg h-9 focus:border-[#87A2FF] focus:outline-none transition-colors duration-200 placeholder-gray-400 px-2 text-sm text-black/70 font-medium' placeholder='Johan@gmail.com'></input>
                         <p className='text-sm font-medium text-black mt-5'>Message</p>
                         <textarea
-                            className='border border-black/20 rounded-lg  md:w-80 lg:w-full mt-1 p-2 resize-none placeholder-gray-400  text-sm text-black/70 font-medium focus:border-[#87A2FF] focus:outline-none transition-colors duration-200'
+                            className='border border-black/20 rounded-lg w-full  md:w-80 lg:w-full mt-1 p-2 resize-none placeholder-gray-400  text-sm text-black/70 font-medium focus:border-[#87A2FF] focus:outline-none transition-colors duration-200'
                             rows={5}
                             maxLength={1000}  // optional: limit characters
                             placeholder='Hii!'
